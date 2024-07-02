@@ -1,19 +1,68 @@
-# Create T3 App
+# Todo List Application
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A simple Todo List application built with Next.js, Prisma, TRPC, and Chakra UI.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- Add, view, update, and delete tasks
+- Filter tasks by completion status
+- Sort tasks by due date
+- Responsive design
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Prerequisites
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- Node.js (v14.x or later)
+- npm (v6.x or later) or yarn (v1.x or later)
+- PostgreSQL (or any other database supported by Prisma)
+
+## Installation
+
+Follow these steps to set up and run the project locally.
+
+### 1. Clone the repository
+
+```sh
+git clone https://github.com/your-username/todo-list-app.git
+cd todo-list-app
+```
+
+### 2. Install dependencies
+
+```sh
+npm install
+```
+
+### 3. Set up the database
+
+```sh
+DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase"
+```
+
+### 4. Generate Prisma Client
+
+```sh
+npm run postinstall
+```
+
+### 5. Migrate the database
+
+```sh
+npm run db:generate
+```
+
+### 6. Start the development server
+
+```sh
+npm run dev
+```
+
+## Tech Stack
+
+- Next.js: React framework for server-side rendering and static site generation
+- Prisma: Next-generation ORM for database access
+- TRPC: End-to-end typesafe APIs
+- Chakra UI: Component library for building accessible React applications
+- TypeScript: Static type-checking
 
 ## Learn More
 
@@ -26,4 +75,4 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 
 ## How do I deploy this?
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+I'm deploying this projects on vercel. Here is the documentation [Vercel](https://create.t3.gg/en/deployment/vercel)

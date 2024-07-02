@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { FaPlus, FaTimes } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { api } from "@/trpc/react";
-import { Button, IconButton, Input, Select, useToast } from '@chakra-ui/react'
-import { Task } from "@prisma/client";
+import { Button, IconButton, Input, Select, useToast } from '@chakra-ui/react';
+import { type Task } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { Card } from "./_components/card";
 
 export default function Home() {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('none');
-  const [isOpenTask, setIsOpenTask] = useState<Boolean>(false);
+  const [isOpenTask, setIsOpenTask] = useState<boolean>(false);
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -26,7 +26,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    refetch();
+    void refetch(); // Use void to explicitly ignore the promise
   }, [search, filter, refetch]);
 
   const addTaskMutation = api.task.addTask.useMutation({
@@ -42,7 +42,7 @@ export default function Home() {
       setDescription('');
       setDueDate('');
       setIsOpenTask(false);
-      refetch();
+      void refetch(); // Use void to explicitly ignore the promise
     },
     onError: (error) => {
       toast({
@@ -102,8 +102,8 @@ export default function Home() {
         />
       </div>
       <div className="flex-col space-y-2 md:space-y-6 mt-6 sm:mt-12 mb-20">
-        {tasks && tasks.map((task: Task) => (
-          <Card key={task.id} content={task} toast={toast} refetch={refetch}/>
+        {tasks?.map((task: Task) => (
+          <Card key={task.id} content={task} toast={toast} refetch={refetch} />
         ))}
       </div>
       {isOpenTask && 

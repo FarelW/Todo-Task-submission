@@ -1,7 +1,5 @@
 import "@/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
-
 import { TRPCReactProvider } from "@/trpc/react";
 import localFont from "next/font/local";
 import { ChakraProvider } from '@chakra-ui/react'
