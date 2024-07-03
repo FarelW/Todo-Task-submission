@@ -101,14 +101,14 @@ export const taskRouter = createTRPCRouter({
       }
     }),
 
-  addTask: publicProcedure
+    addTask: publicProcedure
     .input(
       z.object({
         title: z.string(),
         description: z.string(),
-        duedate: z.string().refine(isValidDate, {
+        duedate: z.string().optional().refine((val) => val === undefined || isValidDate(val), {
           message: "Invalid date format",
-        }).transform((val) => new Date(val)),
+        }).transform((val) => val ? new Date(val) : null),
       }),
     )
     .mutation(async ({ ctx, input }) => {

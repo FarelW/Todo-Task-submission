@@ -60,7 +60,7 @@ export default function Home() {
     addTaskMutation.mutate({ 
       title, 
       description, 
-      duedate: duedate ? new Date(duedate).toISOString() : "" 
+      duedate: duedate ? new Date(duedate).toISOString().split('T')[0] : "" // Convert to YYYY-MM-DD format or set as an empty string
     });
   };
 
