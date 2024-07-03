@@ -99,9 +99,11 @@ export const taskRouter = createTRPCRouter({
   addTask: publicProcedure
     .input(
       z.object({
-        title: z.string().nonempty("Title is required"),
-        description: z.string().optional(),
-        duedate: z.date().optional(),
+        title: z.string(),
+        description: z.string(),
+        duedate: z.string().refine((val) => !isNaN(Date.parse(val)), {
+          message: "Invalid date format",
+        }).transform((val) => new Date(val)),
       }),
     )
     .mutation(async ({ ctx, input }) => {
