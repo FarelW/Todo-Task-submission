@@ -2,6 +2,11 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
+const isValidDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return !isNaN(date.getTime());
+};
+
 export const taskRouter = createTRPCRouter({
   getTask: publicProcedure
     .input(
@@ -101,7 +106,7 @@ export const taskRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         description: z.string(),
-        duedate: z.string().refine((val) => !isNaN(Date.parse(val)), {
+        duedate: z.string().refine(isValidDate, {
           message: "Invalid date format",
         }).transform((val) => new Date(val)),
       }),

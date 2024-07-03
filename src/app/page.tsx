@@ -57,7 +57,11 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTaskMutation.mutate({ title, description, duedate: duedate ? new Date(duedate) : undefined });
+    addTaskMutation.mutate({ 
+      title, 
+      description, 
+      duedate: duedate ? new Date(duedate).toISOString() : "" 
+    });
   };
 
   return (
