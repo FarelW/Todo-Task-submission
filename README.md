@@ -76,3 +76,11 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 I'm deploying this projects on vercel. Here is the documentation [Vercel](https://create.t3.gg/en/deployment/vercel)
+
+## Links
+- Repository : https://github.com/FarelW/Todo-Task-mobile
+- Issue tracker :
+   - If you encounter any issues with the program, come across any disruptive bugs, or have any suggestions for improvement, please don't hesitate to tell the author
+- Github main contributor :
+   - (Farel Winalda) - https://github.com/FarelW
+- Website Link : https://todo-task-submission.vercel.app/
