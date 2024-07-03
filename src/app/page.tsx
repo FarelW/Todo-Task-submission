@@ -57,10 +57,10 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTaskMutation.mutate({ 
-      title, 
-      description, 
-      duedate: duedate ? new Date(duedate).toISOString().split('T')[0] : "" // Convert to YYYY-MM-DD format or set as an empty string
+    addTaskMutation.mutate({
+      title,
+      description,
+      duedate: duedate ? new Date(duedate).toISOString() : "",
     });
   };
 
